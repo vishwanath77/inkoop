@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+	<style>
+		/* .input-label{
+			margin-bottom: 0;
+		} */
+		#error-message {
+			color:black;
+			font:bolder;
+			margin-top: 0%;
+			margin-left: 10%;
+			
+			
+		}
+		
+		#next-even-numbers,#next-odd-numbers{
+			color:black;
+			font:bolder;
+			margin-top: 0;
+			margin-left: 2%;
+		}
+
+		.container{
+			margin-top: 8%;
+		   text-align: center;
+		}
+
+		
+	</style>
+    
+</head>
+<body>
+   
+    <!--  positive number input -->
+    
+	<!-- <h4><center>Positive Number Input</center></h4> -->
+
+	<div class="container">
+	<label for="positive-number-input" class="input-label">Enter a positive number:</label>
+	<input type="number" id="positive-number-input">
+
+	<p id="error-message"></p>
+    </div>
+
+	
+
+
+        <!-- even number input  -->
+
+	<!-- <h4><center>Even Number Input</center></h4> -->
+
+	<div class="container">
+			<label for="even-number-input">Enter an even number:</label>
+			<input type="number" id="even-number-input">
+
+			<p id="next-even-numbers"></p>
+	</div>
+
+
+    <!-- odd number input -->
+
+	<!-- <h4><center>Odd Number Input</center></h4> -->
+
+	<div class="container">
+		<label for="odd-number-input">Enter an odd number:</label>
+		<input type="number" id="odd-number-input">
+
+		<p id="next-odd-numbers"></p>
+
+</div>
+	<script>
+
+        // positive number input 
+
+		const inputField = document.getElementById("positive-number-input");
+		const errorMessage = document.getElementById("error-message");
+
+		inputField.addEventListener("input", function() {
+			if (inputField.value < 0) {
+				errorMessage.textContent = "Enter a positive value";
+			} else {
+				errorMessage.textContent = "";
+			}
+		});
+
+
+        //even number input 
+
+        const inputFieldPositive = document.getElementById("even-number-input");
+		const nextEvenNumbers = document.getElementById("next-even-numbers");
+
+		inputFieldPositive.addEventListener("input", function() {
+			if (inputFieldPositive.value % 2 === 0) {
+				let nextNumbers = "";
+				for (let i = 1; i <= 3; i++) {
+					nextNumbers += (parseInt(inputFieldPositive.value) + (2 * i)) + " ";
+				}
+				nextEvenNumbers.textContent =  nextNumbers;
+			} else {
+				nextEvenNumbers.textContent = "";
+			}
+		});
+
+
+        // odd number input 
+
+        const inputFieldOdd = document.getElementById("odd-number-input");
+		const nextOddNumbers = document.getElementById("next-odd-numbers");
+
+		inputFieldOdd .addEventListener("input", function() {
+			if (inputFieldOdd .value % 2 !== 0) {
+				let nextNumbers = "";
+				for (let i = 1; i <= 3; i++) {
+					nextNumbers += (parseInt(inputFieldOdd.value) + (2 * i)) + " ";
+				}
+				nextOddNumbers.textContent =  nextNumbers;
+			} else {
+				nextOddNumbers.textContent = "";
+			}
+		});
+    </script>
+</body>
+</html>
